@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interactor : MonoBehaviour
 {
@@ -14,9 +15,20 @@ public class Interactor : MonoBehaviour
     private void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, (int)_interactableMask);
+
+        if (_numFound > 0)
+        {
+            var interactable = _colliders[0].GetComponent<IInteractable>();
+            
+            if (interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                interactable.Interact(interactor:this);
+            }
+
+    
+        }
     }
 
-    // Event function
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
