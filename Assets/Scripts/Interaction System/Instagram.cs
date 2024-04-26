@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Instagram : MonoBehaviour, IInteractable
 {
-  public string InteractionPrompt => "Install Instagram"; // Update prompt text
+  public string InteractionPrompt => "Take Instagram"; // Update prompt text
 
   public bool Interact(Interactor interactor)
   {
@@ -19,12 +19,12 @@ public class Instagram : MonoBehaviour, IInteractable
       if (!inventory.HasInstagram)
       {
           inventory.HasInstagram = true;
-          Debug.Log("Installed Instagram!");
+          Debug.Log("Taken Instagram!");
           Destroy(gameObject); // Destroy Instagram object on pickup
           return true;
       }
       
-      Debug.Log("You already have Instagram installed.");
+      Debug.Log("You already have Instagram.");
       return false;
   }
 }
