@@ -32,7 +32,11 @@ public class Interactor : MonoBehaviour
             if (_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
         }
 
-        // Rest of your code...
+  if (Keyboard.current.eKey.wasPressedThisFrame && _interactable != null)
+        {
+            _interactable.Interact(this); // Call the Interact method on the detected interactable
+        }
+    
     }
 
     private void OnDrawGizmos()
