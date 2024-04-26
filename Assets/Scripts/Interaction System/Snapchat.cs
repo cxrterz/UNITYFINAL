@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Snapchat : MonoBehaviour, IInteractable
 {
-  public string InteractionPrompt => "Take Snapchat";
+  public string InteractionPrompt => "(E) Take Snapchat";
 
   public bool Interact(Interactor interactor)
   {
@@ -20,7 +20,7 @@ public class Snapchat : MonoBehaviour, IInteractable
       {
           inventory.HasSnapchat = true;
           Debug.Log("Took Snapchat");
-          Destroy(gameObject); // Destroy Snapchat object on pickup
+          Destroy(gameObject);
           return true;
       }
       

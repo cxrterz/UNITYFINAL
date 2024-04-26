@@ -9,7 +9,7 @@ public class Chest : MonoBehaviour, IInteractable
     [SerializeField] private List<GameObject> treesToActivateFirst; // List of trees to activate first
     [SerializeField] private List<GameObject> treesToActivateSecond; // List of trees to activate second
     [SerializeField] private List<GameObject> treesToActivateThird; // List of trees to activate third
-
+     [SerializeField] private AudioSource successSound;
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Interactor interactor)
@@ -64,31 +64,33 @@ public class Chest : MonoBehaviour, IInteractable
         }
     }
 
-    private void ActivateTreesBasedOnCount()
-    {
-        int numItemsStored = _storedItems.Count;
+private void ActivateTreesBasedOnCount()
+{
+    int numItemsStored = _storedItems.Count;
 
-        // Activate trees based on the number of items stored
-        if (numItemsStored == 1)
+    // Activate trees based on the number of items stored
+    if (numItemsStored == 1)
+    {
+        foreach (GameObject tree in treesToActivateFirst)
         {
-            foreach (GameObject tree in treesToActivateFirst)
-            {
-                tree.SetActive(true);
-            }
-        }
-        else if (numItemsStored == 2)
-        {
-            foreach (GameObject tree in treesToActivateSecond)
-            {
-                tree.SetActive(true);
-            }
-        }
-        else if (numItemsStored == 3)
-        {
-            foreach (GameObject tree in treesToActivateThird)
-            {
-                tree.SetActive(true);
-            }
+            tree.SetActive(true);
         }
     }
+    else if (numItemsStored == 2)
+    {
+        foreach (GameObject tree in treesToActivateSecond)
+        {
+            tree.SetActive(true);
+        }
+    }
+    else if (numItemsStored == 3)
+    {
+        foreach (GameObject tree in treesToActivateThird)
+        {
+            tree.SetActive(true);
+        }
+        // Play success sound
+        successSound.Play();
+    }
+}
 }
