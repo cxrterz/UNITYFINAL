@@ -7,10 +7,8 @@ using UnityEngine.InputSystem;
 public class Inventory : MonoBehaviour
 {
     public bool HasKey = false;
-
-    private void Update()
-    {
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-            HasKey = !HasKey;
-    }
+    public bool HasPhone = false;
+    public bool HasInstagram = false; // Flag for Instagram
+    public bool HasSnapchat = false; // Flag for Snapchat
 }
+

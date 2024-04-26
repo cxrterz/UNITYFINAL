@@ -1047,7 +1047,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
   m_PrefabInstance: {fileID: 2076289331}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &111701036
+--- !u!114 &111701038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1056,10 +1056,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 111701034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08fb20b6624454d67bf2831f75b2f6ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 52f5ed64b742344cb9102844c931009c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSound: {fileID: 0}
+  _prompt: Pick Up Phone
+  _inventory: {fileID: 0}
 --- !u!1001 &131180383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3119,7 +3120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bf09561808a4cadb21d407bfe4a517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: Open Door
+  _prompt: Needs Key
   isOpen: 0
   openRotation: {x: 0, y: 90, z: 0}
   rotationSpeed: 90
@@ -9617,7 +9618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37be5783f24514610b2af646849797a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8720002
+      value: -3.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 37be5783f24514610b2af646849797a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12730,6 +12731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasKey: 0
+  HasPhone: 0
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -14589,7 +14591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.518
+      value: 10.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14627,9 +14629,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7367559088687387456, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5192654526021205759, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3403155128824885820, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -344004081357383697, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
       propertyPath: m_Name
       value: iPhone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233487526047303062, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903893172859080141, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099200001821852667, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779745573541866595, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090062054982439474, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140130539982293932, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14637,7 +14687,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 111701036}
+      addedObject: {fileID: 111701038}
   m_SourcePrefab: {fileID: 100100000, guid: 2fcbdc9669ffd454f8d2e79c9c570d50, type: 3}
 --- !u!1 &2082059900 stripped
 GameObject:
