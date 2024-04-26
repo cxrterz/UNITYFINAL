@@ -6,7 +6,9 @@ public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     [SerializeField] private List<string> _storedItems = new List<string>(); // List of stored items
-    [SerializeField] private List<GameObject> treesToActivate; // List of trees to activate
+    [SerializeField] private List<GameObject> treesToActivateFirst; // List of trees to activate first
+    [SerializeField] private List<GameObject> treesToActivateSecond; // List of trees to activate second
+    [SerializeField] private List<GameObject> treesToActivateThird; // List of trees to activate third
 
     public string InteractionPrompt => _prompt;
 
@@ -17,29 +19,21 @@ public class Chest : MonoBehaviour, IInteractable
         if (inventory == null)
         {
             Debug.LogWarning("Interactor doesn't have Inventory component!");
-            
             return false;
         }
 
- if (CanStoreItem(inventory))
-    {
-        StoreItem(inventory);
-        Debug.Log("Stored item in chest!");
-
-        // Activate the trees
-        foreach (GameObject tree in treesToActivate)
+        if (CanStoreItem(inventory))
         {
-            tree.SetActive(true);
+            StoreItem(inventory);
+            Debug.Log("Stored item in chest!");
+            return true;
         }
-
-        return true;
+        else
+        {
+            Debug.Log("No suitable items found in inventory to store.");
+            return false;
+        }
     }
-    else
-    {
-        Debug.Log("No suitable items found in inventory to store.");
-        return false;
-    }
-}
 
     private bool CanStoreItem(Inventory inventory)
     {
@@ -54,16 +48,47 @@ public class Chest : MonoBehaviour, IInteractable
         {
             inventory.HasPhone = false;
             _storedItems.Add("Phone");
+            ActivateTreesBasedOnCount();
         }
         else if (inventory.HasInstagram)
         {
             inventory.HasInstagram = false;
             _storedItems.Add("Instagram");
+            ActivateTreesBasedOnCount();
         }
         else if (inventory.HasSnapchat)
         {
             inventory.HasSnapchat = false;
             _storedItems.Add("Snapchat");
+            ActivateTreesBasedOnCount();
+        }
+    }
+
+    private void ActivateTreesBasedOnCount()
+    {
+        int numItemsStored = _storedItems.Count;
+
+        // Activate trees based on the number of items stored
+        if (numItemsStored == 1)
+        {
+            foreach (GameObject tree in treesToActivateFirst)
+            {
+                tree.SetActive(true);
+            }
+        }
+        else if (numItemsStored == 2)
+        {
+            foreach (GameObject tree in treesToActivateSecond)
+            {
+                tree.SetActive(true);
+            }
+        }
+        else if (numItemsStored == 3)
+        {
+            foreach (GameObject tree in treesToActivateThird)
+            {
+                tree.SetActive(true);
+            }
         }
     }
 }
