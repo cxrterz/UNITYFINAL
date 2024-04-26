@@ -6,6 +6,7 @@ public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     [SerializeField] private List<string> _storedItems = new List<string>(); // List of stored items
+    [SerializeField] private List<GameObject> treesToActivate; // List of trees to activate
 
     public string InteractionPrompt => _prompt;
 
@@ -16,21 +17,29 @@ public class Chest : MonoBehaviour, IInteractable
         if (inventory == null)
         {
             Debug.LogWarning("Interactor doesn't have Inventory component!");
+            
             return false;
         }
 
-        if (CanStoreItem(inventory))
+ if (CanStoreItem(inventory))
+    {
+        StoreItem(inventory);
+        Debug.Log("Stored item in chest!");
+
+        // Activate the trees
+        foreach (GameObject tree in treesToActivate)
         {
-            StoreItem(inventory);
-            Debug.Log("Stored item in chest!");
-            return true;
+            tree.SetActive(true);
         }
-        else
-        {
-            Debug.Log("No suitable items found in inventory to store.");
-            return false;
-        }
+
+        return true;
     }
+    else
+    {
+        Debug.Log("No suitable items found in inventory to store.");
+        return false;
+    }
+}
 
     private bool CanStoreItem(Inventory inventory)
     {
